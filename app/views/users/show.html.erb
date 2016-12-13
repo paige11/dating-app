@@ -1,10 +1,22 @@
-<h1>Welcome, <%= @user.username %></h1>
+<div class="container-fluid text">
+  <% if @user == current_user %>
+    <h1>Hi, <%= @user.username %></h1>
 
-<h3>Your Personality Type: <%= link_to @user.personality.type, @user.personality_type.url, :target => "_blank" %></h3>
 
-<h3>Your Matches</h3>
-<% if @matches %>
-  <% @matches.each do |match| %>
-    <%= link_to match.partner.username, user_path(match.partner) %>
+    <h3>Your Personality Type: <%= link_to @user.personality.type, @user.personality_type.url, :target => "_blank" %></h3>
+    <p><%= link_to "Retake", edit_personality_path %></p>
+
+
+    <h3>Your Matches</h3>
+    <% if @matches %>
+      <% @matches.each do |match| %>
+        <% match.partner_type.users.each do |user| %>
+          <%= link_to user.username, user_path(user) %>, <%= link_to user.personality_type.name, user.personality_type.url, target: "_blank" %><br>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <h1><%= @user.username %></h1>
+    <h3><%= link_to @user.personality.type, @user.personality_type.url, target: "_blank" %></h3>
   <% end %>
-<% end %>
+</div>

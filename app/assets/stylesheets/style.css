@@ -1,0 +1,31 @@
+#welcome-heading {
+  font-family: 'Montserrat Alternates';
+  color: #81d9dd;
+  font-size: 400%;
+  margin-top: 20%;
+}
+
+.text {
+  font-family: 'Rubik';
+}
+
+.center {
+  text-align: center;
+}
+
+a:link {
+  color: orchid;
+}
+a:visited {
+  color: orchid;
+}
+a:hover {
+  color: orchid;
+}
+a:active {
+  color: orchid;
+}
+
+.orchid {
+  color: orchid;
+}
